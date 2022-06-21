@@ -1,10 +1,17 @@
 import * as React from "react";
-import {Image, StyleSheet, Text, TextInput, View, TouchableOpacity, Linking,} from "react-native";
+import {Image, StyleSheet, Text, TextInput, View, TouchableOpacity, Linking} from "react-native";
 import { Button, Input } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 // import { InputRound } from "./componente";
 
-export const LoginProps = () => {
+export const LoginProps = (navigation: {
+  navigate(arg0: string): unknown; open: any; 
+}) => {
+
+  function open(){
+      navigation.navigate('home');
+  }
+
   return (
     <View style={styles.container}>
       <View>
@@ -29,6 +36,7 @@ export const LoginProps = () => {
 
         <View style={{ marginTop: 20, marginBottom: 50 }}>
           <Button
+            onPress={open}
             buttonStyle={[{ backgroundColor: "#fc0317" }]}
             title={"Entrar"}
           />
